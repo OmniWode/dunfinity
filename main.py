@@ -5,10 +5,13 @@ def draw_frame(stdscr, height, width):
 
     for i in range(width):
     	stdscr.addstr(0, i, "-")
-    	stdscr.addstr(height - 2, i, "-")
+    	#stdscr.addstr(height - 2, i, "-")
 
     x = width // 2 - len(title) // 2
     stdscr.addstr(0, x, title)
+
+def draw_prompt(stdscr, height, width):
+	stdscr.addstr(height - 2, 0, "> ")
 
 def main(stdscr):
 	running = True
@@ -25,7 +28,9 @@ def main(stdscr):
 		# stdscr.addstr(y, x, message)
 		stdscr.addstr(2, 0, "welcome to dunfinity")
 		stdscr.addstr(3, 0, "press q to quit")
-		stdscr.addstr(4, 0, ">>> ")
+		#stdscr.addstr(4, 0, ">>> ")
+
+		draw_prompt(stdscr, height, width)
 
 		# wait for user input
 		stdscr.refresh()
